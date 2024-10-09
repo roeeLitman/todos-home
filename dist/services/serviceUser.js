@@ -19,7 +19,11 @@ const createUser = (newUser) => __awaiter(void 0, void 0, void 0, function* () {
         const { password, name } = newUser;
         //check if password and user not undfin
         if (!password || !name) {
-            throw new Error("password or name is enpty ");
+            return {
+                err: true,
+                message: "pssword or name is empty",
+                status: 400
+            };
         }
         //creat class for user
         const user = new userModel_1.default();
@@ -30,7 +34,12 @@ const createUser = (newUser) => __awaiter(void 0, void 0, void 0, function* () {
         if (!userCretede)
             throw new Error("user not save");
         //returen id
-        return userCretede.id;
+        return {
+            err: false,
+            data: userCretede.id,
+            message: "user created and saved",
+            status: 201
+        };
     }
     catch (err) {
         console.log(err);

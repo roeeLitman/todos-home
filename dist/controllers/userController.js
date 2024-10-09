@@ -13,18 +13,17 @@ exports.register = void 0;
 const serviceUser_1 = require("../services/serviceUser");
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        //
-        const idUser = yield (0, serviceUser_1.createUser)(req.body);
-        res.status(201).json({ id: idUser });
+        const responsDTO = yield (0, serviceUser_1.createUser)(req.body);
+        res.status(responsDTO.status).json(responsDTO);
     }
     catch (err) {
         console.log(err);
+        res.status;
     }
 });
 exports.register = register;
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
     }
-    catch (err) {
-    }
+    catch (err) { }
 });

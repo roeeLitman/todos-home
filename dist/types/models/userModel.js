@@ -12,7 +12,7 @@ const todoSchma = new mongoose_1.default.Schema({
     body: {
         type: String,
         required: [true, "you need tall what are you doing"],
-    }
+    },
 });
 const userSchma = new mongoose_1.default.Schema({
     name: {
@@ -24,8 +24,8 @@ const userSchma = new mongoose_1.default.Schema({
         required: [true, "worning password"],
     },
     todos: {
-        type: [todoSchma]
-    }
+        type: [todoSchma],
+    },
 });
-const UserNodel = mongoose_1.default.model('user', userSchma);
+const UserNodel = mongoose_1.default.model("user", userSchma);
 exports.default = UserNodel;
