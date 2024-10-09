@@ -6,5 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const routr = express_1.default.Router();
 routr.get('/');
-routr.post('/');
+routr.post('/register', () => { });
 exports.default = routr;
