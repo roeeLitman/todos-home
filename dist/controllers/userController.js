@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = void 0;
+exports.getUser = exports.register = void 0;
 const serviceUser_1 = require("../services/serviceUser");
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -18,12 +18,18 @@ const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     catch (err) {
         console.log(err);
-        res.status;
+        res.status(500);
     }
 });
 exports.register = register;
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const responsDTO = yield (0, serviceUser_1.getAllUsers)();
+        res.status(responsDTO.status).json(responsDTO);
     }
-    catch (err) { }
+    catch (err) {
+        console.log(err);
+        res.status(500);
+    }
 });
+exports.getUser = getUser;
